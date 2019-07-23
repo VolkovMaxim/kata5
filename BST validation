@@ -1,0 +1,41 @@
+class T:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+
+def is_bst(node):
+    def walk_tree(node, order):
+        nonlocal a
+        nonlocal BreakDown
+
+        if node.left != None:
+           walk_tree(node.left, order)
+
+        if a != None and order * (a - node.value) > 0:
+            BreakDown = False
+            return False
+        a = node.value
+
+        if node.right != None:
+            walk_tree(node.right, order)
+
+        return breakDown
+
+    # your code here
+    a = None
+    BreakDown = True
+    if node == None or (node.left == None and node.right == None):
+        return BreakDown
+    if node.left != None:
+        if node.value > node.left.value:
+            order = 1
+        else:
+            order = -1
+    elif node.right != None:
+        if node.value < node.right.value:
+            order = 1
+        else:
+            order = -1
+    return walk_tree(node, order)
